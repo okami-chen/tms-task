@@ -16,7 +16,9 @@ class CreateTaskNodeTable extends Migration
         Schema::create('task_node', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('task_id')->comment('任务编号');
-            $table->dateTime('start_at')->comment('开始时间');
+            $table->string('expression', 50)->comment('表达式');
+            $table->dateTime('begin_at')->comment('开始时间');
+            $table->dateTime('end_at')->comment('开始时间');
             $table->timestamps();
         });
     }

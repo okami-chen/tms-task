@@ -78,8 +78,8 @@ class TaskExecuteController extends Controller
 
             $grid->id('编号')->sortable();
             $grid->column('task_id','任务编号')->sortable();
-            $grid->column('node_id','节点编号')->sortable();
             $grid->column('task.title', '标题');
+            $grid->column('node_id','节点编号')->sortable();
             $grid->column('task.week', '星期')->display(function($text){
                 return date('w', strtotime($this->start_at));
             });
