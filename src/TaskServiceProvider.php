@@ -25,9 +25,11 @@ class TaskServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->loadViewsFrom(dirname(__DIR__).'/resources/views', 'tms-task');
         
         if ($this->app->runningInConsole()) {
             $this->publishes([__DIR__.'/../config' => config_path()], 'tms-task-config');
+            $this->publishes([__DIR__.'/../resources/views' => resource_path('views/vendor/tms/task')],'tms-task-views');
             $this->publishes([__DIR__.'/../database/migrations' => database_path('migrations')], 'tms-task-migrations');
         }
         

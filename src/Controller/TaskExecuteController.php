@@ -9,9 +9,10 @@ use Encore\Admin\Layout\Content;
 use App\Http\Controllers\Controller;
 use Encore\Admin\Controllers\ModelForm;
 use OkamiChen\TmsTask\Entity\TaskExecute;
+use OkamiChen\TmsTask\Entity\Task;
 use Encore\Admin\Grid\Filter;
 use Encore\Admin\Grid\Tools;
-use Ue\Extension\Tool\Redirect;
+use OkamiChen\TmsTask\Extension\Tool\Redirect;
 
 class TaskExecuteController extends Controller
 {
@@ -87,14 +88,14 @@ class TaskExecuteController extends Controller
             
             $grid->filter(function(Filter $filter){
                 $filter->disableIdFilter();
-                $options    = \Ue\Entity\Task::pluck('title','id');
+                $options    = Task::pluck('title','id');
                 $filter->equal('task_id', '任务')->select($options);
                 $filter->between('start_at', '时间')->date();
             });
             
             $grid->tools(function (Tools $tools) {
                 $redirect   = new Redirect();
-                $redirect->setUrl(route('task.index'));
+                $redirect->setUrl(route('tms.task.index'));
                 $tools->append($redirect);
             });
             
