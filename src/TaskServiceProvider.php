@@ -1,6 +1,6 @@
 <?php
 
-namespace OkamiChen\TmsMobile;
+namespace OkamiChen\TmsTask;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
