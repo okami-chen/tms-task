@@ -9,7 +9,6 @@
 namespace OkamiChen\TmsTask\Entity;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Description of TaskNode

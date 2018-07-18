@@ -9,6 +9,8 @@
 namespace OkamiChen\TmsTask\Entity;
 
 use Illuminate\Database\Eloquent\Model;
+use OkamiChen\TmsTask\Entity\TaskNode;
+use OkamiChen\TmsTask\Entity\TaskExecute;
 
 /**
  * Description of Task

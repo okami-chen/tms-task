@@ -19,7 +19,7 @@ use OkamiChen\TmsTask\Task\Manager;
 class TaskNodeObserver {
 
     public function saved($model){
-        
+
         $start  = $model->begin_at;
         $end    = $model->end_at;
         $cron   = $model->expression;

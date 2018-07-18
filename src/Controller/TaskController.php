@@ -88,7 +88,7 @@ class TaskController extends Controller
             });
             
             $grid->actions(function(Actions $action){
-                $action->prepend('<a title="'.$this->row->intro.'" href="'. route('execute.index',['task_id'=>$action->getKey()]).'"><i class="fa fa-eye"></i></a>');
+                $action->prepend('<a title="'.$this->row->intro.'" href="'. route('tms.execute.index',['task_id'=>$action->getKey()]).'"><i class="fa fa-eye"></i></a>');
             });
 
         });
@@ -107,8 +107,8 @@ class TaskController extends Controller
             $form->text('title', '标题');
             $form->text('task','任务类')->default('BasicTask');
             $form->textarea('intro', '介绍');
-            $form->date('created_at', '开始时间');
-            $form->date('updated_at', '结束时间');
+            $form->date('created_at', '开始时间')->default(date('Y-m-d'));
+            $form->date('updated_at', '结束时间')->default(date('Y-m-d'));
             
             $form->hasMany('nodes', '节点',function(NestedForm $sub){
                 $sub->text('expression', '表达式');

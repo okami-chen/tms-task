@@ -16,6 +16,7 @@ class CreateTaskTable extends Migration
         Schema::create('task', function (Blueprint $table) {
             $table->bigIncrements('id')->comment('自动编号');
             $table->string('title', 30)->comment('标题');
+            $table->string('task', 50)->comment('任务类');
             $table->string('intro', 3000)->comment('介绍');
             $table->date('begin_at')->comment('开始日期');
             $table->date('end_at')->comment('结束日期');

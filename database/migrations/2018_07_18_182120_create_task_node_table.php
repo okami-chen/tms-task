@@ -18,7 +18,6 @@ class CreateTaskNodeTable extends Migration
             $table->unsignedBigInteger('task_id')->comment('任务编号');
             $table->dateTime('start_at')->comment('开始时间');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
