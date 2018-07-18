@@ -2,7 +2,7 @@
 
 return [
     'task'  => [
-        'class' => 'Ue\\Task\\'
+        'class' => 'OkamiChen\\TmsTask\\Task'
     ]
 ];
 

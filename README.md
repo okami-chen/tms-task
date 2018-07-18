@@ -7,3 +7,5 @@
 2、执行`php artisan vendor:pushlish` 选中`tms-task-config`以及`tms-task-migrations`
 
 3、执行`php artisan vendor:migrate`
+
+4、crontab 添加 `php artisan tms:task:execute` 每分钟执行一次

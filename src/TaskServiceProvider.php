@@ -5,9 +5,19 @@ namespace OkamiChen\TmsTask;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
+use OkamiChen\TmsTask\Entity\Task;
+use OkamiChen\TmsTask\Observer\TaskObserver;
+use OkamiChen\TmsTask\Entity\TaskNode;
+use OkamiChen\TmsTask\Observer\TaskNodeObserver;
 
 class TaskServiceProvider extends ServiceProvider
 {
+    /**
+     * @var array
+     */
+    protected $commands = [
+        'OkamiChen\TmsTask\Console\Command\ExecuteCommand',
+    ];
     /**
      * Bootstrap services.
      *
@@ -22,6 +32,7 @@ class TaskServiceProvider extends ServiceProvider
         }
         
         $this->registerRoute();
+        $this->registerObserver();
     }
 
     /**
@@ -31,7 +42,7 @@ class TaskServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->commands($this->commands);
     }
     
     protected function registerRoute(){
@@ -43,7 +54,13 @@ class TaskServiceProvider extends ServiceProvider
         ];
 
         Route::group($attributes, function (Router $router) {
+            $router->resource('task/execute', 'TaskExecuteController',['as'=>'tms']);
             $router->resource('task', 'TaskController',['as'=>'tms']);
         });
+    }
+    
+    protected function registerObserver(){
+        Task::observe(TaskObserver::class);
+        TaskNode::observe(TaskNodeObserver::class);
     }
 }

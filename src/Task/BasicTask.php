@@ -6,7 +6,7 @@
  * and open the template in the editor.
  */
 
-namespace Ue\Task;
+namespace OkamiChen\TmsTask\Task;
 
 use OkamiChen\TmsTask\Entity\Task;
 use OkamiChen\TmsTask\Entity\TaskNode;
