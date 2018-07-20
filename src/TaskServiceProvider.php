@@ -16,7 +16,7 @@ class TaskServiceProvider extends ServiceProvider
      * @var array
      */
     protected $commands = [
-        'OkamiChen\TmsTask\Console\Command\ExecuteCommand',
+        __NAMESPACE__.'\Console\Command\ExecuteCommand',
     ];
     /**
      * Bootstrap services.
@@ -51,7 +51,7 @@ class TaskServiceProvider extends ServiceProvider
         
         $attributes = [
             'prefix'     => config('admin.route.prefix'),
-            'namespace'  => 'OkamiChen\TmsTask\Controller',
+            'namespace'  => __NAMESPACE__.'\Controller',
             'middleware' => config('admin.route.middleware'),
         ];
 
