@@ -56,8 +56,8 @@ class TaskServiceProvider extends ServiceProvider
         ];
 
         Route::group($attributes, function (Router $router) {
-            $router->resource('task/execute', 'TaskExecuteController',['as'=>'tms']);
-            $router->resource('task', 'TaskController',['as'=>'tms']);
+            $router->resource('/module/task/execute', 'TaskExecuteController',['as'=>'tms']);
+            $router->resource('/module/task/default', 'TaskController',['as'=>'tms']);
         });
     }
     
