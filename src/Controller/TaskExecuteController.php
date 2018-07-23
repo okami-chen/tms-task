@@ -95,7 +95,7 @@ class TaskExecuteController extends Controller
             
             $grid->tools(function (Tools $tools) {
                 $redirect   = new Redirect();
-                $redirect->setUrl(route('tms.task.index'));
+                $redirect->setUrl(route('tms.default.index'));
                 $tools->append($redirect);
             });
             

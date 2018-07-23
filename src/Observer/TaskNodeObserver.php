@@ -25,7 +25,7 @@ class TaskNodeObserver {
         $cron   = $model->expression;
         
         $rows   = Manager::run($cron, $start, $end);
-        
+
         if(!count($rows)){
             return $model;
         }

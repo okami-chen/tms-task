@@ -35,20 +35,23 @@ class Manager {
         
         $now    = time();
 
+
         foreach ($rows as $key => $row) {
-            
+
             $date   = $row->format('Y-m-d H:i:').'00';
+
             $cur    = strtotime($date);
-            
             if($cur <= $now){
                 continue;
             }
             
             if($cur >= $finish){
-                break;
+                continue;
             }
+
             $result[] = $date;
         }
+
         return $result;
     }
 }
