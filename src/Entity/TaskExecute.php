@@ -9,6 +9,7 @@
 namespace OkamiChen\TmsTask\Entity;
 
 use Illuminate\Database\Eloquent\Model;
+use Exception;
 
 /**
  * Description of TaskNode

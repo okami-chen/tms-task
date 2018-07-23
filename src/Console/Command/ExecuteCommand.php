@@ -48,16 +48,10 @@ class ExecuteCommand extends Command
             return true;
         }
         
-        $times  = [
-            date('Y-m-d H:i:00', time() + 180),
-            date('Y-m-d H:i:00', time() + 300),
-        ];
-        
-        foreach ($times as $k => $v){
-            $this->line('time<=>'.$v);
-        }
+        $now    = date('Y-m-d H:i:00', time() + 300);
 
-        $rows   = TaskExecute::whereIn('start_at',[$times])->get();
+        $rows   = TaskExecute::where('start_at', $now)->get();
+
         if(!count($rows)){
             return true;
         }
@@ -79,6 +73,7 @@ class ExecuteCommand extends Command
         
         $exec     = $execute->getExecute();
         $response = $exec->run();
+
         $execute->delete();
         return $response;
     }
